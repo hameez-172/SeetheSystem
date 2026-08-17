@@ -6,6 +6,15 @@
 <title>Hameez — Complete Growth Engine Offer ($697 Special Package)</title>
 <meta name="description" content="Custom AI automation systems, high-converting funnels, direct-response copywriting, and seamless CRM integrations built for scaling business owners." />
 
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H0G0TWLTWT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H0G0TWLTWT');
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -667,6 +676,25 @@
   });
 
   /* ============================================================
+     GA4 EVENT TRACKING — key actions
+     ============================================================ */
+  document.querySelectorAll('a[href*="wa.me"]').forEach(el => {
+    el.addEventListener('click', () => gtag('event', 'click_whatsapp', { page: location.pathname }));
+  });
+
+  document.querySelectorAll('a[href="index.html"], a[href*="index.html#"]').forEach(el => {
+    el.addEventListener('click', () => gtag('event', 'click_back_to_portfolio', { page: location.pathname }));
+  });
+
+  document.querySelectorAll('a[href="#claim-offer"]').forEach(el => {
+    el.addEventListener('click', () => gtag('event', 'click_claim_offer', { page: location.pathname }));
+  });
+
+  document.querySelectorAll('a[href*="linkedin.com"]').forEach(el => {
+    el.addEventListener('click', () => gtag('event', 'click_linkedin', { page: location.pathname }));
+  });
+
+  /* ============================================================
      GOOGLE SHEETS BACKEND — READ BEFORE DEPLOYING
      ------------------------------------------------------------
      1. Google Sheet bana lo with header row (row 1) exactly:
@@ -697,6 +725,8 @@
     submitBtn.textContent = 'Submitting...';
     submitBtn.disabled = true;
 
+    const formData = new FormData(form);
+
     if (scriptURL.includes('PASTE_YOUR_GOOGLE')) {
       // Backend URL abhi tak connect nahi hui — sirf UI test ke liye simulate
       setTimeout(() => {
@@ -704,11 +734,10 @@
         submitBtn.textContent = 'Reserve My Build Slot →';
         submitBtn.disabled = false;
         successMsg.style.display = 'block';
+        gtag('event', 'form_submit_success', { page: location.pathname, source: formData.get('source') });
       }, 800);
       return;
     }
-
-    const formData = new FormData(form);
 
     // Apps Script web apps cross-origin response ko readable nahi karte,
     // is liye no-cors mode use hota hai — request chali jaati hai aur
@@ -723,12 +752,14 @@
         submitBtn.textContent = 'Reserve My Build Slot →';
         submitBtn.disabled = false;
         successMsg.style.display = 'block';
+        gtag('event', 'form_submit_success', { page: location.pathname, source: formData.get('source') });
       })
       .catch(error => {
         console.error('Error!', error.message);
         submitBtn.textContent = 'Reserve My Build Slot →';
         submitBtn.disabled = false;
         errorMsg.style.display = 'block';
+        gtag('event', 'form_submit_error', { page: location.pathname });
       });
   });
 </script>
