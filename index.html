@@ -6,6 +6,15 @@
 <title>Hameez — AI Automation Systems, Funnels & Copywriting</title>
 <meta name="description" content="Custom AI automation systems, high-converting sales funnels, and direct-response copywriting built for growing business owners." />
 
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H0G0TWLTWT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H0G0TWLTWT');
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -876,6 +885,29 @@
   });
 
   /* ============================================================
+     GA4 EVENT TRACKING — key actions
+     ============================================================ */
+  document.querySelectorAll('a[href*="wa.me"]').forEach(el => {
+    el.addEventListener('click', () => gtag('event', 'click_whatsapp', { page: location.pathname }));
+  });
+
+  document.querySelectorAll('a[href="offer.html"], a[href*="#offer"]').forEach(el => {
+    el.addEventListener('click', () => gtag('event', 'click_offer_link', { page: location.pathname }));
+  });
+
+  document.querySelectorAll('a[href="book-a-call.html"], a[href*="calendly"]').forEach(el => {
+    el.addEventListener('click', () => gtag('event', 'click_book_call', { page: location.pathname }));
+  });
+
+  document.querySelectorAll('a[href*="linkedin.com"]').forEach(el => {
+    el.addEventListener('click', () => gtag('event', 'click_linkedin', { page: location.pathname }));
+  });
+
+  document.querySelectorAll('.work-link[href^="http"]').forEach(el => {
+    el.addEventListener('click', () => gtag('event', 'click_portfolio_demo', { page: location.pathname, label: el.closest('.work-content')?.querySelector('h3')?.textContent || '' }));
+  });
+
+  /* ============================================================
      GOOGLE SHEETS BACKEND — READ BEFORE DEPLOYING
      ------------------------------------------------------------
      Same setup jo offer.html ke liye kiya tha, wahi Apps Script
@@ -900,17 +932,18 @@
     submitBtn.textContent = 'Submitting...';
     submitBtn.disabled = true;
 
+    const formData = new FormData(form);
+
     if (scriptURL.includes('PASTE_YOUR_GOOGLE')) {
       setTimeout(() => {
         form.reset();
         submitBtn.textContent = 'Send Project Inquiry →';
         submitBtn.disabled = false;
         successMsg.style.display = 'block';
+        gtag('event', 'form_submit_success', { page: location.pathname, source: formData.get('source') });
       }, 800);
       return;
     }
-
-    const formData = new FormData(form);
 
     fetch(scriptURL, {
       method: 'POST',
@@ -922,12 +955,14 @@
         submitBtn.textContent = 'Send Project Inquiry →';
         submitBtn.disabled = false;
         successMsg.style.display = 'block';
+        gtag('event', 'form_submit_success', { page: location.pathname, source: formData.get('source') });
       })
       .catch(error => {
         console.error('Error!', error.message);
         submitBtn.textContent = 'Send Project Inquiry →';
         submitBtn.disabled = false;
         errorMsg.style.display = 'block';
+        gtag('event', 'form_submit_error', { page: location.pathname });
       });
   });
 </script>
