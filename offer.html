@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hameez — Complete Growth Engine Offer ($697 Special Package)</title>
+<meta name="description" content="Custom AI automation systems, high-converting funnels, direct-response copywriting, and seamless CRM integrations built for scaling business owners." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-main: #0B0F19;
+    --bg-surface: #131B2E;
+    --bg-card: #1A233A;
+    --border-color: #2A3655;
+    
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+    
+    --accent: #10B981;
+    --accent-hover: #059669;
+    --accent-glow: rgba(16, 185, 129, 0.15);
+    
+    --purple-glow: rgba(139, 92, 246, 0.15);
+    --purple: #8B5CF6;
+    
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    
+    --maxw: 1200px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  
+  body {
+    margin: 0;
+    background: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .glow-orb {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: var(--accent-glow);
+    filter: blur(120px);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  /* ---------- NAVIGATION ---------- */
+  header.nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(11, 15, 25, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+  }
+  .nav-inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 16px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-mark {
+    font-family: 'Fraunces', serif; font-weight: 700; font-size: 22px;
+    display: flex; align-items: center; gap: 6px;
+    color: #FFFFFF;
+  }
+  .nav-mark span { color: var(--accent); }
+  
+  nav.links { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; align-items: center; }
+  nav.links a {
+    font-size: 14px; font-weight: 600; color: #FFFFFF;
+    transition: color 0.2s ease;
+  }
+  nav.links a:hover { color: var(--accent); }
+  
+  .nav-offer-btn {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700;
+    background: var(--accent); color: #FFFFFF !important;
+    padding: 8px 14px; border-radius: var(--radius-sm);
+    box-shadow: 0 0 15px var(--accent-glow);
+    animation: pulseGlow 2s infinite;
+  }
+  @keyframes pulseGlow {
+    0% { box-shadow: 0 0 10px rgba(16, 185, 129, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
+    100% { box-shadow: 0 0 10px rgba(16, 185, 129, 0.2); }
+  }
+
+  .nav-cta {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700;
+    background: var(--accent); color: #FFFFFF !important;
+    padding: 10px 20px; border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+  }
+  .nav-cta:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+  
+  .burger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+  .burger span { display: block; width: 24px; height: 2px; background: #FFFFFF; margin: 6px 0; transition: 0.3s; }
+
+  @media (max-width: 1024px) {
+    nav.links { display: none; }
+    .burger { display: block; }
+    .nav-cta { display: none; }
+  }
+
+  /* ---------- HERO SECTION ---------- */
+  .hero {
+    padding: 160px 0 100px;
+    position: relative;
+    background: linear-gradient(180deg, var(--bg-main) 0%, var(--bg-surface) 100%);
+    border-bottom: 1px solid var(--border-color);
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero { padding-top: 130px; }
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    padding: 6px 14px; border-radius: 50px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent);
+    margin-bottom: 24px;
+  }
+  .badge::before {
+    content: "⚡"; font-size: 11px;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 4.8vw, 56px); line-height: 1.08; color: var(--text-primary);
+    margin-bottom: 24px;
+  }
+  .hero h1 span {
+    background: linear-gradient(135deg, var(--accent) 0%, #34D399 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero p.lede {
+    font-size: 17px; color: var(--text-secondary); max-width: 52ch; margin-bottom: 28px;
+  }
+
+  .hero-proof {
+    display: flex; gap: 22px; flex-wrap: wrap; margin-bottom: 32px;
+  }
+  .hero-proof-item {
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--text-muted);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .hero-proof-item strong { color: var(--text-primary); font-size: 13px; }
+
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .btn-accent {
+    background: var(--accent); color: #FFFFFF; font-weight: 700;
+    padding: 16px 28px; border-radius: var(--radius-sm); display: inline-flex;
+    align-items: center; gap: 10px; transition: all 0.2s ease;
+  }
+  .btn-accent:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 25px var(--accent-glow); }
+  .btn-secondary {
+    color: var(--text-secondary); font-weight: 600; font-size: 15px;
+    padding: 16px 8px; display: inline-flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .btn-secondary:hover { color: var(--text-primary); border-color: var(--accent); }
+
+  /* Pricing Box Preview */
+  .pricing-preview-card {
+    background: var(--bg-card);
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+  }
+  .pricing-preview-card::before {
+    content: "6 SLOTS / BATCH";
+    position: absolute; top: 20px; right: -34px; background: var(--accent); color: #FFFFFF;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 800;
+    padding: 4px 34px; transform: rotate(45deg); letter-spacing: 0.08em;
+  }
+  .pp-price-tag {
+    display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px;
+  }
+  .pp-old { font-size: 22px; color: var(--text-muted); text-decoration: line-through; font-family: 'JetBrains Mono', monospace; }
+  .pp-new { font-size: 48px; font-weight: 800; color: var(--accent); font-family: 'Fraunces', serif; }
+  .pp-subnote { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--text-muted); margin-bottom: 20px; display: block; }
+  .pp-features { list-style: none; padding: 0; margin: 0 0 24px 0; display: flex; flex-direction: column; gap: 12px; }
+  .pp-features li {
+    font-size: 14.5px; color: var(--text-secondary); display: flex; align-items: center; gap: 10px;
+  }
+  .pp-features li::before { content: "✓"; color: var(--accent); }
+
+  /* ---------- SECTION SHARED STYLES ---------- */
+  section { padding: 110px 0; position: relative; }
+  .section-header { text-align: center; max-width: 680px; margin: 0 auto 64px; }
+  .section-header .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase;
+    letter-spacing: 0.15em; color: var(--accent); margin-bottom: 14px; display: inline-block;
+  }
+  .section-header h2 { font-size: clamp(32px, 4vw, 44px); margin-bottom: 16px; }
+  .section-header p { color: var(--text-secondary); font-size: 17px; }
+
+  /* ---------- LOOM VIDEO SECTION ---------- */
+  .video-section { background: var(--bg-surface); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+  .video-container {
+    max-width: 900px; margin: 0 auto; background: var(--bg-card);
+    border: 1px solid var(--border-color); border-radius: var(--radius-lg);
+    overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  }
+  .video-wrapper {
+    position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+  }
+  .video-wrapper iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+  }
+  .video-footer {
+    padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+    background: var(--bg-surface); border-top: 1px solid var(--border-color);
+  }
+  .video-footer p { margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text-secondary); }
+
+  /* ---------- BREAKDOWN OF THE $697 PACKAGE ---------- */
+  .breakdown-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media(max-width: 900px) { .breakdown-grid { grid-template-columns: 1fr; } }
+  
+  .breakdown-card {
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: var(--radius-md); padding: 36px 28px; display: flex; flex-direction: column;
+    position: relative; transition: all 0.3s ease;
+  }
+  .breakdown-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .breakdown-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent);
+    background: var(--accent-glow); padding: 4px 10px; border-radius: 4px; width: fit-content;
+    margin-bottom: 20px;
+  }
+  .breakdown-card h3 { font-size: 21px; margin-bottom: 12px; }
+  .breakdown-card p { color: var(--text-secondary); font-size: 14.5px; margin: 0 0 20px; flex: 1; }
+  .breakdown-value-tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-muted);
+    border-top: 1px solid var(--border-color); padding-top: 14px;
+    display: flex; justify-content: space-between;
+  }
+  .breakdown-value-tag span { color: var(--text-primary); font-weight: 700; }
+
+  /* ---------- WORKFLOW GALLERY (3 PICTURES) ---------- */
+  .gallery-section { background: var(--bg-surface); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media(max-width: 900px) { .gallery-grid { grid-template-columns: 1fr; } }
+  
+  .gallery-card {
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;
+  }
+  .gallery-img-wrap {
+    aspect-ratio: 16/10; background: var(--bg-main); overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .gallery-img-wrap img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top;
+    transition: transform 0.4s ease;
+  }
+  .gallery-card:hover .gallery-img-wrap img { transform: scale(1.03); }
+  .gallery-content { padding: 24px; }
+  .gallery-content h4 { font-size: 18px; margin-bottom: 8px; }
+  .gallery-content p { color: var(--text-secondary); font-size: 13.5px; margin: 0; }
+
+  /* ---------- OBJECTION / FAQ SECTION ---------- */
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 40px; }
+  @media(max-width: 860px) { .faq-grid { grid-template-columns: 1fr; } }
+  .faq-item { border-bottom: 1px solid var(--border-color); padding-bottom: 20px; }
+  .faq-item h4 { font-size: 16px; margin-bottom: 8px; color: var(--text-primary); }
+  .faq-item p { font-size: 14.5px; color: var(--text-secondary); margin: 0; }
+
+  /* ---------- VALUE COMPARISON SECTION ---------- */
+  .compare-box {
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg); padding: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+  }
+  @media(max-width: 860px) { .compare-box { grid-template-columns: 1fr; padding: 30px; } }
+  
+  .compare-col { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 32px; }
+  .compare-col.special { border-color: var(--accent); background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, var(--bg-surface) 100%); }
+  .compare-col h3 { font-size: 22px; margin-bottom: 20px; }
+  .compare-list { list-style: none; padding: 0; margin: 0 0 24px 0; display: flex; flex-direction: column; gap: 14px; }
+  .compare-list li { font-size: 14.5px; color: var(--text-secondary); display: flex; align-items: center; gap: 10px; }
+
+  /* ---------- CONTACT / CHECKOUT SECTION ---------- */
+  .contact-section { background: linear-gradient(180deg, var(--bg-main) 0%, var(--bg-surface) 100%); }
+  .contact-box {
+    background: var(--bg-card); border: 2px solid var(--accent);
+    border-radius: var(--radius-lg); padding: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6); position: relative; overflow: hidden;
+  }
+  @media(max-width: 860px) { .contact-box { grid-template-columns: 1fr; padding: 30px; } }
+  
+  .contact-info h2 { font-size: 38px; margin-bottom: 16px; }
+  .contact-info p { color: var(--text-secondary); font-size: 16px; margin-bottom: 30px; }
+  
+  .contact-methods { display: flex; flex-direction: column; gap: 16px; }
+  .contact-method-link {
+    display: flex; align-items: center; gap: 12px; font-family: 'JetBrains Mono', monospace;
+    font-size: 14px; color: var(--text-primary); background: var(--bg-surface);
+    padding: 14px 18px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+  }
+  .contact-method-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-secondary); }
+  .contact-form input, .contact-form textarea {
+    background: var(--bg-surface); border: 1px solid var(--border-color);
+    color: var(--text-primary); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px;
+    padding: 14px 16px; border-radius: var(--radius-sm); outline: none; transition: border-color 0.2s ease;
+  }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); }
+  .contact-form textarea { resize: vertical; min-height: 120px; }
+
+  /* Success Message Styling */
+  #formSuccess {
+    display: none; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--accent);
+    padding: 16px; border-radius: var(--radius-sm); color: var(--accent);
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; text-align: center; margin-top: 12px;
+  }
+  #formError {
+    display: none; background: rgba(239, 68, 68, 0.1); border: 1px solid #EF4444;
+    padding: 16px; border-radius: var(--radius-sm); color: #FCA5A5;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; text-align: center; margin-top: 12px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer { background: var(--bg-main); border-top: 1px solid var(--border-color); padding: 40px 0; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  footer p { margin: 0; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text-secondary); transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<div class="glow-orb" style="top: -100px; left: -100px;"></div>
+<div class="glow-orb" style="top: 40%; right: -200px; background: var(--purple-glow);"></div>
+
+<!-- NAVIGATION -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-mark">Hameez<span>.</span></a>
+    <nav class="links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#ai-automations">AI Automations</a>
+      <a href="index.html#funnels">Funnels</a>
+      <a href="index.html#copy">Copywriting</a>
+      <a href="#offer-breakdown" class="nav-offer-btn">⚡ $697 Special Offer</a>
+    </nav>
+    <a href="#claim-offer" class="nav-cta">Claim Offer →</a>
+    <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="badge">For Coaches Booked Manually Through DMs</div>
+      <h1>Every Unanswered DM Is a Client Who Booked With Someone Else. <span>Here's the Fix.</span></h1>
+      <p class="lede">You already know funnels exist. You've probably already been pitched "AI automation" twice this month. The difference here isn't the buzzwords — it's that every lead who messages you gets qualified, answered, and booked in minutes, even while you're coaching a session or asleep.</p>
+      
+      <div class="hero-proof">
+        <div class="hero-proof-item"><strong>0</strong>&nbsp;manual DM replies needed</div>
+        <div class="hero-proof-item"><strong>24/7</strong>&nbsp;lead response, not "when I get a chance"</div>
+        <div class="hero-proof-item"><strong>1 system</strong>&nbsp;instead of 3 separate vendors</div>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#claim-offer" class="btn-accent">See If You Qualify for the $697 Slot →</a>
+        <a href="#walkthrough" class="btn-secondary">Watch the 3-Min Breakdown</a>
+      </div>
+    </div>
+    
+    <div>
+      <div class="pricing-preview-card">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; color: var(--accent); letter-spacing: 0.1em; display: block; margin-bottom: 8px;">Built, Connected, and Handed Over</span>
+        <h3 style="font-size: 24px; margin-bottom: 16px;">The $697 Growth Engine</h3>
+        <div class="pp-price-tag">
+          <span class="pp-old">$2,200 built separately</span>
+          <span class="pp-new">$697</span>
+        </div>
+        <span class="pp-subnote">One build. One person accountable. No agency relay-race.</span>
+        <ul class="pp-features">
+          <li>AI DM/Form Qualification & Booking Flow</li>
+          <li>Conversion-Built Lead Funnel</li>
+          <li>Sales Copy Written From Your Actual Offer</li>
+          <li>4 Ad Angles Ready to Run</li>
+          <li>CRM + Slack Alerts, Wired End-to-End</li>
+        </ul>
+        <a href="#claim-offer" class="btn-accent" style="width: 100%; justify-content: center; margin-top: 10px;">Reserve a Build Slot →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOOM VIDEO WALKTHROUGH SECTION -->
+<section class="video-section" id="walkthrough">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">No Hype, Just the Mechanism</span>
+      <h2>Watch the System Run Before You Pay for It</h2>
+      <p>Three minutes, screen-recorded, no slides. This is what actually fires when a lead messages you — the exact qualification logic, the booking handoff, and where the data lands.</p>
+    </div>
+    <div class="video-container">
+      <div class="video-wrapper">
+        <iframe src="https://www.loom.com/embed/d9619c28f7214aeaaeecba985f462e21" allowfullscreen></iframe>
+      </div>
+      <div class="video-footer">
+        <p>🎥 Screen-recorded by Hameez — the real build, not a demo reel</p>
+        <a href="#claim-offer" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #FFFFFF;">Reserve This Build ($697) →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS INCLUDED ($697 BREAKDOWN) -->
+<section id="offer-breakdown">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">Exact Scope, No Vague Deliverables</span>
+      <h2>What Actually Gets Built for Your $697</h2>
+      <p>No "strategy calls" that turn into upsells. Four connected modules, built once, wired together, and handed to you working.</p>
+    </div>
+    <div class="breakdown-grid">
+      <div class="breakdown-card">
+        <span class="breakdown-num">MODULE 01</span>
+        <h3>AI Lead Qualification & Booking</h3>
+        <p>An automation that reads every inbound DM or form fill, asks the 2–3 questions that separate a real buyer from a tire-kicker, and drops qualified leads straight onto your calendar — no group admin required.</p>
+        <div class="breakdown-value-tag">Built solo, agency quotes: <span>$900</span></div>
+      </div>
+      <div class="breakdown-card">
+        <span class="breakdown-num">MODULE 02</span>
+        <h3>Conversion-Built Funnel</h3>
+        <p>One page, one job: turn a cold click into a booked call. Fast-loading, mobile-first, structured around the objections your specific offer actually gets — not a generic template with your logo swapped in.</p>
+        <div class="breakdown-value-tag">Built solo, agency quotes: <span>$700</span></div>
+      </div>
+      <div class="breakdown-card">
+        <span class="breakdown-num">MODULE 03</span>
+        <h3>Copy & Ad Angles From Your Offer</h3>
+        <p>Sales copy written after I understand what you actually sell and who you sell it to — not filled-in placeholder text. Paired with 4 ad angles built to test against each other, not just one "safe" version.</p>
+        <div class="breakdown-value-tag">Built solo, agency quotes: <span>$600</span></div>
+      </div>
+      <div class="breakdown-card" style="grid-column: span 3; background: var(--bg-surface); border-color: var(--accent);">
+        <span class="breakdown-num" style="background: var(--accent-glow); color: var(--accent);">MODULE 04 — WHY IT DOESN'T FALL APART LATER</span>
+        <h3 style="font-size: 24px;">Full CRM & Webhook Wiring</h3>
+        <p style="font-size: 16px; max-width: 80ch;">The part most "funnel guys" skip: your qualification flow, email sequences, CRM pipeline, and a Slack alert the moment a hot lead comes in — all connected, so nothing sits in a spreadsheet nobody checks.</p>
+        <div class="breakdown-value-tag" style="border-top-color: rgba(16, 185, 129, 0.2);">Not billed separately: <span style="color: var(--accent);">included in the $697</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW & SYSTEM GALLERY (3 PICTURES) -->
+<section class="gallery-section">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">What's Actually Under the Hood</span>
+      <h2>The Blueprints, Not a Sales Render</h2>
+      <p>If you've been burned by a "custom system" that turned out to be a template, this is the opposite — the real routing logic and backend nodes behind every build.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <div class="gallery-img-wrap">
+          <img src="12.jpg" alt="Automation Miro Diagram Preview" loading="lazy">
+        </div>
+        <div class="gallery-content">
+          <h4>Lead Routing Map</h4>
+          <p>How a DM from organic content and a click from a paid ad get filtered down two different paths to the same qualified outcome.</p>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-img-wrap">
+          <img src="13.jpg" alt="Complete Lead Flow Architecture Preview" loading="lazy">
+        </div>
+        <div class="gallery-content">
+          <h4>End-to-End Lead Schema</h4>
+          <p>Every stage a lead passes through — capture, AI evaluation, nurture branch, or straight to your calendar if they're ready now.</p>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-img-wrap">
+          <img src="14.jpg" alt="n8n Make Node Workflow Preview" loading="lazy">
+        </div>
+        <div class="gallery-content">
+          <h4>Backend Execution Nodes</h4>
+          <p>The actual n8n/Make workflow running the webhooks, condition checks, and CRM writes — this is what you're paying to have built, not a mockup of it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTION HANDLING / FAQ -->
+<section>
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">Before You Ask</span>
+      <h2>The Questions Every Serious Buyer Asks</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>Isn't this just a landing page with extra steps?</h4>
+        <p>No — the page is the smallest part. The actual work is the qualification logic and CRM wiring behind it, which is why funnels alone rarely move the needle without it.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can't AI tools like this replace what you're selling?</h4>
+        <p>The tools exist — assembling them into one working system that talks to your CRM and doesn't break is the part that takes the actual time. That's what you're paying for.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What do you need from me to start?</h4>
+        <p>Your current offer, your booking link or calendar, and CRM access (or none, if you don't have one yet — I'll set one up as part of the build).</p>
+      </div>
+      <div class="faq-item">
+        <h4>How long does the build take?</h4>
+        <p>Typical turnaround is 5–7 days from kickoff, depending on how fast I get access to your accounts and offer details.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE COMPARISON -->
+<section>
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">Your Actual Alternative</span>
+      <h2>Hiring This Out Piece by Piece vs. One Build</h2>
+      <p>Not "us vs. the competition" — this is the real trade-off between hiring three specialists who've never spoken to each other, and one person who owns the whole system.</p>
+    </div>
+    <div class="compare-box">
+      <div class="compare-col">
+        <h3 style="color: var(--text-muted);">Hiring It Out Separately</h3>
+        <ul class="compare-list">
+          <li>❌ Automation consultant, billed alone ($900+)</li>
+          <li>❌ Copywriter, briefed from scratch ($600+)</li>
+          <li>❌ Web developer for the funnel page ($700+)</li>
+          <li>❌ You're the one connecting their work together</li>
+          <li>❌ Real cost once you count your own time: <strong>$2,200+</strong></li>
+        </ul>
+      </div>
+      <div class="compare-col special">
+        <h3 style="color: var(--accent);">One Build, $697</h3>
+        <ul class="compare-list">
+          <li>✓ AI Qualification & Booking, wired in from day one</li>
+          <li>✓ Funnel built around your actual objections</li>
+          <li>✓ Copy written from your offer, not a template</li>
+          <li>✓ 4 ad angles ready to test</li>
+          <li>✓ CRM + Slack alerts connected, not bolted on later</li>
+          <li>✓ Total: <strong style="color: var(--accent); font-size: 20px;">$697</strong></li>
+        </ul>
+        <a href="#claim-offer" class="btn-accent" style="width: 100%; justify-content: center; margin-top: 10px;">Reserve a Build Slot →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / CHECKOUT SECTION -->
+<section class="contact-section" id="claim-offer">
+  <div class="wrap">
+    <div class="contact-box">
+      <div class="contact-info">
+        <span class="eyebrow" style="color: var(--accent);">Reserve Your Slot</span>
+        <h2>Only 6 Builds per Batch.</h2>
+        <p>I build these one at a time so each system is actually configured for the coach it's built for — not copy-pasted. Fill in the details below and I'll reply within 24 hours with next steps, or to tell you honestly if it's not a fit yet.</p>
+        
+        <div class="contact-methods">
+          <a href="mailto:hameez172@gmail.com" class="contact-method-link">
+            <span>✉️</span> hameez172@gmail.com
+          </a>
+          <a href="https://wa.me/923426881848" target="_blank" rel="noopener" class="contact-method-link">
+            <span>💬</span> WhatsApp Direct Chat
+          </a>
+          <a href="https://www.linkedin.com/in/muhammad-hameez" target="_blank" rel="noopener" class="contact-method-link">
+            <span>💼</span> LinkedIn Profile
+          </a>
+        </div>
+      </div>
+      
+      <!-- Google Sheets Connected Form -->
+      <form class="contact-form" id="leadForm">
+        <div class="form-group">
+          <label for="name">YOUR NAME</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">YOUR EMAIL</label>
+          <input type="email" id="email" name="email" placeholder="you@domain.com" required>
+        </div>
+        <div class="form-group">
+          <label for="business">BUSINESS / WEBSITE / IG HANDLE</label>
+          <input type="text" id="business" name="business" placeholder="@yourbrand or yourdomain.com" required>
+        </div>
+        <div class="form-group">
+          <label for="message">YOUR OFFER & CURRENT BOTTLENECK</label>
+          <textarea id="message" name="message" placeholder="Briefly describe what you sell and what you want automated..." required></textarea>
+        </div>
+        <input type="hidden" name="source" value="Offer Page">
+        <button type="submit" id="submitBtn" class="btn-accent" style="border: none; cursor: pointer; width: 100%; justify-content: center; margin-top: 8px;">Reserve My Build Slot →</button>
+        <div id="formSuccess">✓ Inquiry received successfully! I will reach out within 24 hours.</div>
+        <div id="formError">⚠ Something went wrong. Please try again or email me directly.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p>© <span id="year"></span> Hameez — AI Automation, Funnels & Copywriting Architect.</p>
+    <div class="footer-links">
+      <a href="index.html">Home Portfolio</a>
+      <a href="mailto:hameez172@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/muhammad-hameez" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const burger = document.getElementById('burgerBtn');
+  const links = document.querySelector('nav.links');
+  burger.addEventListener('click', () => {
+    const open = links.style.display === 'flex';
+    links.style.display = open ? 'none' : 'flex';
+    if (!open) {
+      links.style.cssText += 'display:flex; flex-direction:column; position:fixed; top:70px; left:0; right:0; background:var(--bg-surface); padding:24px; border-bottom:1px solid var(--border-color); gap:18px; z-index:999; box-shadow: 0 20px 40px rgba(0,0,0,0.6);';
+    }
+    burger.setAttribute('aria-expanded', String(!open));
+  });
+
+  /* ============================================================
+     GOOGLE SHEETS BACKEND — READ BEFORE DEPLOYING
+     ------------------------------------------------------------
+     1. Google Sheet bana lo with header row (row 1) exactly:
+        Timestamp | Name | Email | Business | Message
+     2. Sheet me: Extensions → Apps Script. Purana code delete
+        karke neeche di gayi Apps Script (google-apps-script.gs
+        file me alag se di hui hai) paste kar do, Save karo.
+     3. Deploy → New deployment → type: "Web app".
+        - Execute as: Me
+        - Who has access: Anyone
+        Deploy karo, "Web app URL" copy kar lo.
+     4. Neeche scriptURL variable me ye URL paste kar do
+        (single quotes ke andar). Bas itna karne se form live
+        ho jayega aur har submission Google Sheet me row bankar
+        add hogi.
+     ============================================================ */
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwT9WuYW52qsqev6jZ2LnqwWtLY_56v2hJgdhv3bGH9u818ILdIS3S9aPLPKZUOHwJZqw/exec';
+
+  const form = document.getElementById('leadForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const successMsg = document.getElementById('formSuccess');
+  const errorMsg = document.getElementById('formError');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    successMsg.style.display = 'none';
+    errorMsg.style.display = 'none';
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+
+    if (scriptURL.includes('PASTE_YOUR_GOOGLE')) {
+      // Backend URL abhi tak connect nahi hui — sirf UI test ke liye simulate
+      setTimeout(() => {
+        form.reset();
+        submitBtn.textContent = 'Reserve My Build Slot →';
+        submitBtn.disabled = false;
+        successMsg.style.display = 'block';
+      }, 800);
+      return;
+    }
+
+    const formData = new FormData(form);
+
+    // Apps Script web apps cross-origin response ko readable nahi karte,
+    // is liye no-cors mode use hota hai — request chali jaati hai aur
+    // sheet me row add ho jaati hai, response sirf opaque aata hai.
+    fetch(scriptURL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    })
+      .then(() => {
+        form.reset();
+        submitBtn.textContent = 'Reserve My Build Slot →';
+        submitBtn.disabled = false;
+        successMsg.style.display = 'block';
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        submitBtn.textContent = 'Reserve My Build Slot →';
+        submitBtn.disabled = false;
+        errorMsg.style.display = 'block';
+      });
+  });
+</script>
+
+</body>
+</html>

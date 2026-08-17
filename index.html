@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hameez — AI Automation Systems, Funnels & Copywriting</title>
+<meta name="description" content="Custom AI automation systems, high-converting sales funnels, and direct-response copywriting built for growing business owners." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-main: #0B0F19;
+    --bg-surface: #131B2E;
+    --bg-card: #1A233A;
+    --border-color: #2A3655;
+    
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+    
+    --accent: #10B981;
+    --accent-hover: #059669;
+    --accent-glow: rgba(16, 185, 129, 0.15);
+    
+    --gold: #F59E0B;
+    --gold-glow: rgba(245, 158, 11, 0.15);
+    
+    --purple-glow: rgba(139, 92, 246, 0.15);
+    --purple: #8B5CF6;
+    
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    
+    --maxw: 1200px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  
+  body {
+    margin: 0;
+    background: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .glow-orb {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: var(--accent-glow);
+    filter: blur(120px);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  /* ---------- NAVIGATION ---------- */
+  header.nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(11, 15, 25, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+  }
+  .nav-inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 16px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-mark {
+    font-family: 'Fraunces', serif; font-weight: 700; font-size: 22px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .nav-mark span { color: var(--accent); }
+  
+  nav.links { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; align-items: center; }
+  nav.links a {
+    font-size: 14px; font-weight: 600; color: #FFFFFF;
+    transition: color 0.2s ease;
+  }
+  nav.links a:hover { color: var(--accent); }
+  
+  .nav-offer-btn {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700;
+    background: var(--gold); color: var(--bg-main);
+    padding: 8px 14px; border-radius: var(--radius-sm);
+    box-shadow: 0 0 15px var(--gold-glow);
+    animation: pulseGlow 2s infinite;
+  }
+  @keyframes pulseGlow {
+    0% { box-shadow: 0 0 10px rgba(245, 158, 11, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+    100% { box-shadow: 0 0 10px rgba(245, 158, 11, 0.2); }
+  }
+
+  .nav-cta {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500;
+    background: var(--accent); color: var(--bg-main);
+    padding: 10px 20px; border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+  }
+  .nav-cta:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+  
+  .burger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+  .burger span { display: block; width: 24px; height: 2px; background: var(--text-primary); margin: 6px 0; transition: 0.3s; }
+
+  @media (max-width: 1024px) {
+    nav.links { display: none; }
+    .burger { display: block; }
+    .nav-cta { display: none; }
+  }
+
+  /* ---------- HERO SECTION ---------- */
+  .hero {
+    padding: 160px 0 100px;
+    position: relative;
+    background: linear-gradient(180deg, var(--bg-main) 0%, var(--bg-surface) 100%);
+    border-bottom: 1px solid var(--border-color);
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center;
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero { padding-top: 130px; }
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    padding: 6px 14px; border-radius: 50px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent);
+    margin-bottom: 24px;
+  }
+  .badge::before {
+    content: ""; width: 8px; height: 8px; background: var(--accent); border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent);
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 5.2vw, 64px); line-height: 1.08; color: var(--text-primary);
+    margin-bottom: 24px;
+  }
+  .hero h1 span {
+    background: linear-gradient(135deg, var(--accent) 0%, #34D399 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero p.lede {
+    font-size: 18px; color: var(--text-secondary); max-width: 52ch; margin-bottom: 36px;
+  }
+
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    background: var(--accent); color: var(--bg-main); font-weight: 700;
+    padding: 16px 28px; border-radius: var(--radius-sm); display: inline-flex;
+    align-items: center; gap: 10px; transition: all 0.2s ease;
+  }
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 25px var(--accent-glow); }
+
+  .btn-secondary {
+    background: var(--bg-card); color: var(--text-primary); font-weight: 600;
+    border: 1px solid var(--border-color); padding: 16px 24px; border-radius: var(--radius-sm);
+    display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s ease;
+  }
+  .btn-secondary:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .funnel-visualizer {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+  .fv-header {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .fv-steps { display: flex; flex-direction: column; gap: 12px; }
+  .fv-step {
+    background: var(--bg-surface); border: 1px solid var(--border-color);
+    padding: 16px 20px; border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+  .fv-step:hover { border-color: var(--accent); transform: translateX(4px); }
+  .fv-step-left { display: flex; align-items: center; gap: 14px; }
+  .fv-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent);
+    background: var(--accent-glow); padding: 4px 8px; border-radius: 4px;
+  }
+  .fv-title { font-weight: 600; font-size: 15px; color: var(--text-primary); }
+  .fv-desc { font-size: 13px; color: var(--text-secondary); }
+  .fv-badge {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    padding: 4px 10px; border-radius: 20px; background: rgba(139, 92, 246, 0.1);
+    color: var(--purple); border: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  /* ---------- STATS BAR ---------- */
+  .stats-bar {
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-surface);
+    padding: 30px 0;
+  }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+  }
+  @media(max-width: 768px) { .stats-grid { grid-template-columns: 1fr; gap: 20px; } }
+  .stat-item .stat-num {
+    font-family: 'Fraunces', serif; font-size: 36px; font-weight: 700; color: var(--accent);
+    display: block; margin-bottom: 4px;
+  }
+  .stat-item .stat-lbl {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;
+  }
+
+  /* ---------- SECTION SHARED STYLES ---------- */
+  section { padding: 110px 0; position: relative; }
+  .section-header { text-align: center; max-width: 680px; margin: 0 auto 64px; }
+  .section-header .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase;
+    letter-spacing: 0.15em; color: var(--accent); margin-bottom: 14px; display: inline-block;
+  }
+  .section-header h2 { font-size: clamp(32px, 4vw, 44px); margin-bottom: 16px; }
+  .section-header p { color: var(--text-secondary); font-size: 17px; }
+
+  /* ---------- ABOUT SECTION ---------- */
+  .about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items: center; }
+  @media(max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
+  
+  .about-img-box {
+    position: relative; border-radius: var(--radius-lg); overflow: hidden;
+    border: 1px solid var(--border-color); background: var(--bg-card);
+    aspect-ratio: 4/5;
+  }
+  .about-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  
+  .about-content h3 { font-size: 28px; margin-bottom: 20px; }
+  .about-content p { color: var(--text-secondary); margin-bottom: 20px; font-size: 16.5px; }
+  
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 30px;
+  }
+  .skill-tag {
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    padding: 12px 16px; border-radius: var(--radius-sm);
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text-primary);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .skill-tag::before { content: "⚡"; font-size: 12px; }
+
+  /* ---------- SERVICES / SOLUTIONS ---------- */
+  .services-section { background: var(--bg-surface); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media(max-width: 900px) { .services-grid { grid-template-columns: 1fr; } }
+  
+  .service-card {
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: var(--radius-md); padding: 40px 32px;
+    display: flex; flex-direction: column; transition: all 0.3s ease;
+    position: relative; overflow: hidden;
+  }
+  .service-card::after {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: transparent; transition: background 0.3s ease;
+  }
+  .service-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+  .service-card:hover::after { background: var(--accent); }
+  
+  .service-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent);
+    margin-bottom: 24px; display: inline-block; background: var(--accent-glow);
+    padding: 6px 12px; border-radius: 4px; width: fit-content;
+  }
+  .service-card h3 { font-size: 22px; margin-bottom: 14px; }
+  .service-card p { color: var(--text-secondary); font-size: 15px; margin-bottom: 24px; flex: 1; }
+  .service-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border-color); padding-top: 20px; }
+  .service-list li {
+    font-size: 14px; color: var(--text-secondary); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .service-list li::before { content: "✓"; color: var(--accent); font-weight: bold; }
+
+  /* ---------- PORTFOLIO SECTION STYLING ---------- */
+  .portfolio-section { padding-bottom: 40px; }
+  .portfolio-section + .portfolio-section { padding-top: 0; }
+  
+  .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  @media(max-width: 960px) { .work-grid { grid-template-columns: 1fr; } }
+  
+  .work-card {
+    background: var(--bg-surface); border: 1px solid var(--border-color);
+    border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;
+    transition: all 0.3s ease;
+  }
+  .work-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+  
+  .work-img-wrap {
+    aspect-ratio: 16/10; background: var(--bg-card); overflow: hidden;
+    position: relative; border-bottom: 1px solid var(--border-color);
+  }
+  .work-img-wrap img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top;
+    transition: transform 0.5s ease;
+  }
+  .work-card:hover .work-img-wrap img { transform: scale(1.03); }
+  
+  .work-content { padding: 28px; display: flex; flex-direction: column; flex: 1; }
+  .work-tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--accent); margin-bottom: 10px; display: block;
+  }
+  .work-content h3 { font-size: 20px; margin-bottom: 10px; }
+  .work-content p { color: var(--text-secondary); font-size: 14.5px; margin-bottom: 20px; }
+  
+  .case-box {
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm); padding: 16px; margin-bottom: 20px;
+  }
+  .case-box p { font-size: 13px; line-height: 1.5; margin: 0 0 10px; color: var(--text-secondary); }
+  .case-box p:last-child { margin-bottom: 0; }
+  .case-box b { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 2px; }
+
+  .work-link {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text-primary);
+    background: var(--bg-card); border: 1px solid var(--border-color); padding: 12px 18px;
+    border-radius: var(--radius-sm); text-align: center; margin-top: auto; display: block;
+    transition: all 0.2s ease;
+  }
+  .work-link:hover { background: var(--accent); color: var(--bg-main); border-color: var(--accent); }
+
+  /* ---------- COPYWRITING SAMPLES ---------- */
+  .copy-section { background: var(--bg-surface); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+  .copy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  @media(max-width: 900px) { .copy-grid { grid-template-columns: 1fr; } }
+  
+  .copy-card {
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: var(--radius-md); padding: 32px; display: flex; flex-direction: column;
+    transition: all 0.3s ease;
+  }
+  .copy-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .copy-card .copy-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+  .copy-card .headline-sample {
+    font-family: 'Fraunces', serif; font-size: 18px; line-height: 1.5; color: var(--text-primary);
+    margin-bottom: 20px; flex: 1; font-style: italic;
+  }
+  .copy-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-muted); margin-bottom: 16px; }
+
+  /* ---------- PROCESS TIMELINE ---------- */
+  .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media(max-width: 860px) { .process-grid { grid-template-columns: 1fr; } }
+  
+  .process-card {
+    background: var(--bg-surface); border: 1px solid var(--border-color);
+    border-radius: var(--radius-md); padding: 32px; position: relative;
+  }
+  .process-step {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent);
+    background: var(--accent-glow); padding: 4px 10px; border-radius: 4px; display: inline-block;
+    margin-bottom: 18px;
+  }
+  .process-card h3 { font-size: 20px; margin-bottom: 10px; }
+  .process-card p { color: var(--text-secondary); font-size: 15px; margin: 0; }
+
+  /* ---------- CONTACT SECTION ---------- */
+  .contact-section { background: linear-gradient(180deg, var(--bg-main) 0%, var(--bg-surface) 100%); }
+  .contact-box {
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg); padding: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5); position: relative; overflow: hidden;
+  }
+  @media(max-width: 860px) { .contact-box { grid-template-columns: 1fr; padding: 30px; } }
+  
+  .contact-info h2 { font-size: 38px; margin-bottom: 16px; }
+  .contact-info p { color: var(--text-secondary); font-size: 16px; margin-bottom: 30px; }
+  
+  .contact-methods { display: flex; flex-direction: column; gap: 16px; }
+  .contact-method-link {
+    display: flex; align-items: center; gap: 12px; font-family: 'JetBrains Mono', monospace;
+    font-size: 14px; color: var(--text-primary); background: var(--bg-surface);
+    padding: 14px 18px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+  }
+  .contact-method-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-secondary); }
+  .contact-form input, .contact-form textarea {
+    background: var(--bg-surface); border: 1px solid var(--border-color);
+    color: var(--text-primary); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px;
+    padding: 14px 16px; border-radius: var(--radius-sm); outline: none; transition: border-color 0.2s ease;
+  }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); }
+  .contact-form textarea { resize: vertical; min-height: 120px; }
+
+  /* Success / Error Message Styling */
+  #formSuccess {
+    display: none; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--accent);
+    padding: 16px; border-radius: var(--radius-sm); color: var(--accent);
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; text-align: center; margin-top: 12px;
+  }
+  #formError {
+    display: none; background: rgba(239, 68, 68, 0.1); border: 1px solid #EF4444;
+    padding: 16px; border-radius: var(--radius-sm); color: #FCA5A5;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; text-align: center; margin-top: 12px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer { background: var(--bg-main); border-top: 1px solid var(--border-color); padding: 40px 0; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  footer p { margin: 0; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text-secondary); transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<div class="glow-orb" style="top: -100px; left: -100px;"></div>
+<div class="glow-orb" style="top: 40%; right: -200px; background: var(--purple-glow);"></div>
+
+<!-- NAVIGATION -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-mark">Hameez<span>.</span></a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#ai-automations">AI Automations</a>
+      <a href="#funnels">Funnels</a>
+      <a href="#copy">Copywriting</a>
+      <a href="offer.html" class="nav-offer-btn">⚡ $697 Special Offer</a>
+    </nav>
+    <a href="book-a-call.html" class="nav-cta">Book Strategy Call →</a>
+    <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="badge">AI Automation Architect & Conversion Strategist</div>
+      <h1>Your Leads Aren't the Problem. Your <span>Follow-Up</span> Is.</h1>
+      <p class="lede">Most "growth" advice tells you to run more ads. But if half your DMs sit unanswered and your funnel is really just a link in bio, more traffic just means more leads going cold. I build the AI qualification, funnel, and CRM layer that catches every lead the moment they show up — and actually gets them booked.</p>
+      <div class="hero-actions">
+        <a href="#ai-automations" class="btn-primary">See How the Systems Work →</a>
+        <a href="offer.html" class="btn-secondary" style="border-color: var(--gold); color: var(--gold);">⚡ View $697 Special Offer</a>
+      </div>
+    </div>
+    
+    <div>
+      <div class="funnel-visualizer">
+        <div class="fv-header">
+          <span>What Runs Behind the Scenes</span>
+          <span style="color: var(--accent);">● LIVE WORKFLOW</span>
+        </div>
+        <div class="fv-steps">
+          <div class="fv-step">
+            <div class="fv-step-left">
+              <span class="fv-num">01</span>
+              <div>
+                <div class="fv-title">DM, Form Fill, or Ad Click Comes In</div>
+                <div class="fv-desc">Wherever the lead lands, it's tracked from second one</div>
+              </div>
+            </div>
+            <span class="fv-badge">Capture</span>
+          </div>
+          <div class="fv-step">
+            <div class="fv-step-left">
+              <span class="fv-num">02</span>
+              <div>
+                <div class="fv-title">AI Asks the Qualifying Questions</div>
+                <div class="fv-desc">Filters browsers from buyers before you ever reply</div>
+              </div>
+            </div>
+            <span class="fv-badge">AI Brain</span>
+          </div>
+          <div class="fv-step">
+            <div class="fv-step-left">
+              <span class="fv-num">03</span>
+              <div>
+                <div class="fv-title">CRM Updates, Slack Pings Your Team</div>
+                <div class="fv-desc">No copy-pasting leads between five different tabs</div>
+              </div>
+            </div>
+            <span class="fv-badge">Workflow</span>
+          </div>
+          <div class="fv-step">
+            <div class="fv-step-left">
+              <span class="fv-num">04</span>
+              <div>
+                <div class="fv-title">Qualified Lead Lands on Your Calendar</div>
+                <div class="fv-desc">You show up to a booked call, not a cold DM thread</div>
+              </div>
+            </div>
+            <span class="fv-badge" style="color: var(--accent); background: var(--accent-glow); border-color: var(--accent);">Booked</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="wrap stats-grid">
+    <div class="stat-item">
+      <span class="stat-num">24/7</span>
+      <span class="stat-lbl">Leads Qualified, Even Off-Hours</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">0</span>
+      <span class="stat-lbl">Leads Copy-Pasted Between Tools by Hand</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">3</span>
+      <span class="stat-lbl">Systems Working Together, Not in Isolation</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT SECTION -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-img-box">
+      <img src="hameez.png" alt="Hameez — AI Automation & Funnel Architect" loading="lazy">
+    </div>
+    <div class="about-content">
+      <div class="section-header" style="text-align: left; margin: 0 0 24px 0;">
+        <span class="eyebrow" style="margin-bottom: 8px;">About Me</span>
+        <h2 style="font-size: 36px; margin: 0;">I fix the gap between "getting attention" and "getting booked."</h2>
+      </div>
+      <p>I'm Hameez. Most coaches and founders I talk to already have leads coming in — the problem is never really traffic. It's that half of those leads never get a reply, the other half get a link in bio instead of an actual funnel, and nobody's tracking any of it in one place.</p>
+      <p>I build three connected pieces so that gap closes: AI systems that qualify and respond to leads automatically, funnels built around your actual offer instead of a generic template, and copy that's written after I understand what you sell — not filled in around a script.</p>
+      
+      <div class="skills-grid">
+        <div class="skill-tag">Custom AI Qualification Agents</div>
+        <div class="skill-tag">Workflow Automation (N8N/Make)</div>
+        <div class="skill-tag">Sales Funnel Architecture</div>
+        <div class="skill-tag">Direct-Response Copywriting</div>
+        <div class="skill-tag">CRM & Slack Webhooks</div>
+        <div class="skill-tag">Landing Page CRO & Design</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="services-section" id="services">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">Core Expertise</span>
+      <h2>Three tracks, built to work as one system</h2>
+      <p>Hire one track on its own, or run all three together so nothing falls through the cracks between "got a lead" and "got paid."</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-num">TRACK 01</span>
+        <h3>AI Automations</h3>
+        <p>AI agents and workflows that read your DMs or form fills, ask the questions that actually separate real buyers from window-shoppers, and route the answer straight into your CRM.</p>
+        <ul class="service-list">
+          <li>Instagram DM AI qualification bots</li>
+          <li>Node workflow logic (N8N / Make)</li>
+          <li>Automated CRM & Slack webhooks</li>
+          <li>Nothing sits in your inbox unread</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-num">TRACK 02</span>
+        <h3>Funnel Builds</h3>
+        <p>A page and a path built around your actual offer — replacing a scattered link-in-bio with something that moves a cold visitor toward a booked call or checkout.</p>
+        <ul class="service-list">
+          <li>High-converting landing pages</li>
+          <li>Application & booking flows</li>
+          <li>Membership & retention portals</li>
+          <li>Tracking & pixel integration</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-num">TRACK 03</span>
+        <h3>Copywriting</h3>
+        <p>Copy written from your specific offer and audience — not a template with your name dropped in — built to move someone who's already skeptical of another "growth" pitch.</p>
+        <ul class="service-list">
+          <li>Long-form sales page copy</li>
+          <li>Automated email nurture sequences</li>
+          <li>High-CTR ad angles & hooks</li>
+          <li>Offer positioning strategy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY 01: AI AUTOMATION PROJECTS -->
+<section class="portfolio-section" id="ai-automations">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">Track 01 Portfolio</span>
+      <h2>AI Automation Systems & Workflows</h2>
+      <p>Real builds, not mockups — the actual logic behind how leads get filtered, evaluated, and routed without anyone manually touching them.</p>
+    </div>
+    <div class="work-grid">
+      
+      <div class="work-card">
+        <div class="work-img-wrap">
+          <img src="1st_funnel.jpg" alt="AI Qualification Workflow Preview" loading="lazy">
+        </div>
+        <div class="work-content">
+          <span class="work-tag">AI Automation Architecture</span>
+          <h3>Multi-Channel AI Lead Qualifier</h3>
+          <p>A system that reads Instagram DMs and ad-form applications and routes each one through the same AI evaluation logic, no matter where it came from.</p>
+          <div class="case-box">
+            <p><b>The Problem</b>Leads were coming in faster than they could be manually screened, and the good ones weren't getting priority over the tire-kickers.</p>
+            <p><b>What Was Built</b>An AI agent that qualifies each prospect in real time, sends a booking link to the ones who qualify, and drops the rest into an email nurture sequence instead of a dead thread.</p>
+          </div>
+          <a href="https://health-coach-funnel-1.vercel.app" target="_blank" rel="noopener" class="work-link">View Live System Demo →</a>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-img-wrap">
+          <img src="14.jpg" alt="Advanced Node Workflow Preview" loading="lazy">
+        </div>
+        <div class="work-content">
+          <span class="work-tag">Backend Logic Automation</span>
+          <h3>Advanced Node Automation Engine</h3>
+          <p>The backend logic layer handling webhook triggers, AI response parsing, and the conditional branching that decides what happens to each lead next.</p>
+          <div class="case-box">
+            <p><b>The Problem</b>Disconnected tools were quietly losing data — missed calendar syncs, leads that never got a follow-up message.</p>
+            <p><b>What Was Built</b>One backend tying form inputs, AI evaluation, conditional routing, and instant team alerts into a single chain instead of five separate tools.</p>
+          </div>
+          <span class="work-link" style="opacity: 0.6; cursor: default;">Proprietary Architecture</span>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-img-wrap">
+          <img src="13.jpg" alt="Automation Blueprint Preview" loading="lazy">
+        </div>
+        <div class="work-content">
+          <span class="work-tag">System Architecture</span>
+          <h3>Full-Funnel Automation Blueprint</h3>
+          <p>A complete map of every hop a lead takes — from where it enters, through AI qualification, into the CRM, and onto a team alert.</p>
+          <div class="case-box">
+            <p><b>The Problem</b>No one could see where leads were dropping off between marketing and the sales team picking them up.</p>
+            <p><b>What Was Built</b>A documented, traceable automation layout so every handoff point is visible instead of a black box.</p>
+          </div>
+          <span class="work-link" style="opacity: 0.6; cursor: default;">Custom Workflow Blueprint</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY 02: FUNNEL PROJECTS -->
+<section class="portfolio-section" id="funnels">
+  <div class="wrap">
+    <div class="section-header" style="margin-top: 40px;">
+      <span class="eyebrow">Track 02 Portfolio</span>
+      <h2>Conversion Funnel Projects</h2>
+      <p>Pages built to do one job — move a cold visitor to a booked call — not just look good in a screenshot.</p>
+    </div>
+    <div class="work-grid">
+      
+      <div class="work-card">
+        <div class="work-img-wrap">
+          <img src="1st_funnel.jpg" alt="Client Acquisition Funnel Preview" loading="lazy">
+        </div>
+        <div class="work-content">
+          <span class="work-tag">Client Acquisition Funnel</span>
+          <h3>High-Performance Coaching Funnel</h3>
+          <p>Replaced a scattered link-in-bio with a structured path built specifically to book consultation calls.</p>
+          <div class="case-box">
+            <p><b>The Problem</b>Visitors landed on a wall of random links and bounced instead of taking one clear next step.</p>
+            <p><b>What Was Built</b>A single Optin → Application → Booking flow, with every step there to move someone closer to the calendar, not away from it.</p>
+          </div>
+          <a href="https://health-coach-funnel-1.vercel.app" target="_blank" rel="noopener" class="work-link">View Live Funnel →</a>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-img-wrap">
+          <img src="3rd_funnel.jpg" alt="Membership Funnel Preview" loading="lazy">
+        </div>
+        <div class="work-content">
+          <span class="work-tag">Recurring Revenue Funnel</span>
+          <h3>Membership & Retention Portal</h3>
+          <p>An onboarding flow built to keep a one-time buyer around long enough to become a recurring member.</p>
+          <div class="case-box">
+            <p><b>The Problem</b>Front-end sales were solid, but there was no system keeping buyers engaged — revenue reset to zero every month.</p>
+            <p><b>What Was Built</b>A member onboarding sequence backed by a 5-day educational email series that gives people a reason to stay.</p>
+          </div>
+          <a href="https://webinar-funnel-lake.vercel.app/" target="_blank" rel="noopener" class="work-link">View Live Funnel →</a>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-img-wrap">
+          <img src="2nd_funnel.jpg" alt="Lean Funnel Framework Preview" loading="lazy">
+        </div>
+        <div class="work-content">
+          <span class="work-tag">Cold Traffic Architecture</span>
+          <h3>Lean Client-Getting Funnel</h3>
+          <p>An acquisition path built for brands where the visitor has never heard of them before — no borrowed trust to lean on.</p>
+          <div class="case-box">
+            <p><b>The Problem</b>A hard paywall was showing up too early, pushing cold visitors away before they'd gotten any value.</p>
+            <p><b>What Was Built</b>A value-first sequence that earns trust before asking for anything, so cold scrollers can move naturally toward a booked call.</p>
+          </div>
+          <a href="https://nutrional-funnel.vercel.app/" target="_blank" rel="noopener" class="work-link">View Live Funnel →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY 03: COPYWRITING SAMPLES -->
+<section class="copy-section" id="copy">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">Track 03 Portfolio</span>
+      <h2>Direct-Response Copywriting Samples</h2>
+      <p>Written for an audience that's already seen the generic version of this pitch — no filler, no recycled hooks.</p>
+    </div>
+    <div class="copy-grid">
+      <div class="copy-card">
+        <span class="copy-tag">Sales Page Headline</span>
+        <p class="headline-sample">"Your Leads Aren't Slow to Convert. They're Slow to Get a Reply."</p>
+        <span class="copy-meta">Target: Founders whose bottleneck is follow-up, not traffic</span>
+        <a href="https://docs.google.com/document/d/17WkDet8hmBzZAo_du9MDfIPimpPRdMKnvdcIJOPs-Zk/edit?usp=sharing" target="_blank" rel="noopener" class="work-link">Read Full Copy Doc →</a>
+      </div>
+      <div class="copy-card">
+        <span class="copy-tag">Email Nurture Sequence</span>
+        <p class="headline-sample">"How many people messaged you this week and never heard back?"</p>
+        <span class="copy-meta">Target: Founders losing revenue to slow response times</span>
+        <a href="https://docs.google.com/document/d/17NbuapLhhhCDxkDYNTut7PyzTBm8xFAJCFW_leHlsZk/edit?usp=sharing" target="_blank" rel="noopener" class="work-link">Read Full Copy Doc →</a>
+      </div>
+      <div class="copy-card">
+        <span class="copy-tag">Ad Hook Angle</span>
+        <p class="headline-sample">"You don't need more leads. You need the ones you already have to stop going cold."</p>
+        <span class="copy-meta">Target: Coaches skeptical of another "more traffic" pitch</span>
+        <a href="https://docs.google.com/document/d/1efJ0619rf2rVhdK81kq9XKPjSTIj7XQh7F5K2-bx6xo/edit?usp=sharing" target="_blank" rel="noopener" class="work-link">Read Full Copy Doc →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS TIMELINE -->
+<section id="process">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">Execution Blueprint</span>
+      <h2>How a build actually happens</h2>
+      <p>No 90-day roadmap, no recurring retainer required to get started — a focused 3-phase build.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card">
+        <span class="process-step">PHASE 01</span>
+        <h3>Audit & Strategy</h3>
+        <p>I look at where your leads are actually coming from and where they're getting lost, then map out exactly what needs to be built — not a generic package.</p>
+      </div>
+      <div class="process-card">
+        <span class="process-step">PHASE 02</span>
+        <h3>Build & Copywriting</h3>
+        <p>I configure the AI qualification logic, build the funnel pages, and write the copy — based on your actual offer, not a fill-in-the-blank template.</p>
+      </div>
+      <div class="process-card">
+        <span class="process-step">PHASE 03</span>
+        <h3>Launch & CRM Sync</h3>
+        <p>Every webhook gets tested, your CRM and calendar get connected, and the system goes live — with you knowing exactly how it works, not just that it does.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <div class="contact-info">
+        <span class="eyebrow">Let's Talk</span>
+        <h2>Tell me what's actually breaking down.</h2>
+        <p>Not sure if it's automation, the funnel, or the copy that's costing you leads? Tell me what's happening and I'll tell you honestly what needs fixing first — I'll reply within 24 hours.</p>
+        
+        <div class="contact-methods">
+          <a href="mailto:hameez172@gmail.com" class="contact-method-link">
+            <span>✉️</span> hameez172@gmail.com
+          </a>
+          <a href="https://wa.me/923426881848" target="_blank" rel="noopener" class="contact-method-link">
+            <span>💬</span> WhatsApp Direct Chat
+          </a>
+          <a href="https://www.linkedin.com/in/muhammad-hameez" target="_blank" rel="noopener" class="contact-method-link">
+            <span>💼</span> LinkedIn Profile
+          </a>
+        </div>
+      </div>
+      
+      <!-- Google Sheets Connected Form -->
+      <form class="contact-form" id="leadForm">
+        <div class="form-group">
+          <label for="name">YOUR NAME</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">YOUR EMAIL</label>
+          <input type="email" id="email" name="email" placeholder="you@domain.com" required>
+        </div>
+        <div class="form-group">
+          <label for="business">BUSINESS / WEBSITE</label>
+          <input type="text" id="business" name="business" placeholder="yourdomain.com">
+        </div>
+        <div class="form-group">
+          <label for="message">WHAT ARE YOU LOOKING TO BUILD?</label>
+          <textarea id="message" name="message" placeholder="AI automation, sales funnel, copywriting, or all three..." required></textarea>
+        </div>
+        <input type="hidden" name="source" value="Portfolio Page">
+        <button type="submit" id="submitBtn" class="btn-primary" style="border: none; cursor: pointer; width: 100%; justify-content: center; margin-top: 8px;">Send Project Inquiry →</button>
+        <div id="formSuccess">✓ Inquiry received successfully! I will reach out within 24 hours.</div>
+        <div id="formError">⚠ Something went wrong. Please try again or email me directly.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p>© <span id="year"></span> Hameez — AI Automation, Funnels & Copywriting Architect.</p>
+    <div class="footer-links">
+      <a href="offer.html" style="color: var(--gold);">⚡ $697 Special Offer</a>
+      <a href="mailto:hameez172@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/muhammad-hameez" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const burger = document.getElementById('burgerBtn');
+  const links = document.querySelector('nav.links');
+  burger.addEventListener('click', () => {
+    const open = links.style.display === 'flex';
+    links.style.display = open ? 'none' : 'flex';
+    if (!open) {
+      links.style.cssText += 'display:flex; flex-direction:column; position:fixed; top:70px; left:0; right:0; background:var(--bg-surface); padding:24px; border-bottom:1px solid var(--border-color); gap:18px; z-index:999; box-shadow: 0 20px 40px rgba(0,0,0,0.6);';
+    }
+    burger.setAttribute('aria-expanded', String(!open));
+  });
+
+  /* ============================================================
+     GOOGLE SHEETS BACKEND — READ BEFORE DEPLOYING
+     ------------------------------------------------------------
+     Same setup jo offer.html ke liye kiya tha, wahi Apps Script
+     yahan bhi use hoga (google-apps-script.gs file). Agar dono
+     pages ki inquiries ek hi Sheet me chahiye to same Web app URL
+     dono jagah paste kar do — "source" column apne aap batayega
+     ke lead Portfolio page se aayi ya Offer page se.
+     Agar alag Sheet chahiye har page ke liye, to doosri Sheet pr
+     alag se Apps Script deploy karke uska URL yahan paste karo.
+     ============================================================ */
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwT9WuYW52qsqev6jZ2LnqwWtLY_56v2hJgdhv3bGH9u818ILdIS3S9aPLPKZUOHwJZqw/exec';
+
+  const form = document.getElementById('leadForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const successMsg = document.getElementById('formSuccess');
+  const errorMsg = document.getElementById('formError');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    successMsg.style.display = 'none';
+    errorMsg.style.display = 'none';
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+
+    if (scriptURL.includes('PASTE_YOUR_GOOGLE')) {
+      setTimeout(() => {
+        form.reset();
+        submitBtn.textContent = 'Send Project Inquiry →';
+        submitBtn.disabled = false;
+        successMsg.style.display = 'block';
+      }, 800);
+      return;
+    }
+
+    const formData = new FormData(form);
+
+    fetch(scriptURL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    })
+      .then(() => {
+        form.reset();
+        submitBtn.textContent = 'Send Project Inquiry →';
+        submitBtn.disabled = false;
+        successMsg.style.display = 'block';
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        submitBtn.textContent = 'Send Project Inquiry →';
+        submitBtn.disabled = false;
+        errorMsg.style.display = 'block';
+      });
+  });
+</script>
+
+</body>
+</html>
